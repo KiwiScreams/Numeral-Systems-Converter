@@ -1,17 +1,13 @@
 const numInput = document.getElementById("number-input");
 const inputBaseSelect = document.getElementById("input-base-select");
-const resultDiv = document.getElementById("result-text");
+const resultText = document.getElementById("result");
 const binaryButton = document.getElementById("binary-button");
 const octalButton = document.getElementById("octal-button");
 const decimalButton = document.getElementById("decimal-button");
 const hexadecimalButton = document.getElementById("hexadecimal-button");
 
 function superFunc(base) {
-  const numberInput = document.getElementById('number-input');
-  const inputBaseSelect = document.getElementById('input-base-select');
-  const resultText = document.getElementById('result-text');
-
-  const number = numberInput.value;
+  const number = numInput.value;
   const inputBase = parseInt(inputBaseSelect.value);
 
   if (!number) {
@@ -20,7 +16,7 @@ function superFunc(base) {
   }
 
   if (inputBase) {
-    if (inputBase === 2) { 
+    if (inputBase === 2) {
       if (!/^[01]+$/.test(number)) {
         alert("Binary numbers can only contain 0 and 1.");
         return;
@@ -28,31 +24,24 @@ function superFunc(base) {
     }
 
     const decimal = parseInt(number, inputBase);
-    const result = `Base ${base}: ${decimal.toString(base)}`;
-    resultText.innerText += result + '\n';
+    const result = `${decimal.toString(base)}`;
+    resultText.innerText = result;
   } else {
     alert("Please select an input base.");
   }
 }
 
-function enableButtons() {
-  const number = numInput.value;
-  const inputBase = parseInt(inputBaseSelect.value);
+binaryButton.addEventListener("click", function () {
+  superFunc(2);
+});
 
-  if (number && inputBase) {
-    binaryButton.disabled = false;
-    octalButton.disabled = false;
-    decimalButton.disabled = false;
-    hexadecimalButton.disabled = false;
-  } else {
-    binaryButton.disabled = true;
-    octalButton.disabled = true;
-    decimalButton.disabled = true;
-    hexadecimalButton.disabled = true;
-  }
-}
+octalButton.addEventListener("click", function () {
+  superFunc(8);
+});
 
-numInput.addEventListener("input", enableButtons);
-inputBaseSelect.addEventListener("change", enableButtons);
-
-enableButtons();
+decimalButton.addEventListener("click", function () {
+  superFunc(10);
+});
+hexadecimalButton.addEventListener("click", function () {
+  superFunc(16);
+});

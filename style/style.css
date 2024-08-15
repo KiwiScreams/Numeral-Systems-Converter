@@ -9,11 +9,6 @@
     outline: none;
     transition: 0.3s;
 }
-:root
-{
-    --white-clr: #fff;
-    --black-clr: #000;
-}
 body
 {
     width: 100vw;
@@ -61,9 +56,8 @@ body
     right: 1px;
     top: 2px;
     width: 40px;
-    padding: 6px;
+    padding: 2px;
     height: 36px;
-    /* background-color: blueviolet; */
     background-color: greenyellow;
     border-radius: 20px;
 }
@@ -79,4 +73,13 @@ body
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+}
+#result-text
+{
+    margin-top: 20px;
+}
+#result-text span:nth-child(1)
+{
+    font-weight: bold;
+    color: green;
 }
