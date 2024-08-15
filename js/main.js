@@ -16,6 +16,9 @@ function superFunc(base) {
   if (!number) {
     panelText.textContent = "Please enter a number";
     fixedPanel.classList.add("show");
+    setTimeout(function() {
+      fixedPanel.classList.remove("show");
+    }, 1500);
     return;
   }
 
@@ -24,6 +27,9 @@ function superFunc(base) {
       if (!/^[01]+$/.test(number)) {
         panelText.textContent = "Binary numbers can only contain 0 and 1";
         fixedPanel.classList.add("show");
+        setTimeout(function() {
+          fixedPanel.classList.remove("show");
+        }, 1500);
         return;
       }
     }
@@ -34,6 +40,9 @@ function superFunc(base) {
   } else {
     panelText.textContent = "Please select an input base";
     fixedPanel.classList.add("show");
+    setTimeout(function() {
+      fixedPanel.classList.remove("show");
+    }, 1500);
   }
 }
 
