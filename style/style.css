@@ -9,11 +9,18 @@
     outline: none;
     transition: 0.3s;
 }
+:root
+{
+    --greenyellow-clr: greenyellow;
+    --green-clr: green;
+    --white-clr: #fff;
+    --black-clr: #000;
+}
 body
 {
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(to bottom, green, greenyellow);
+    background: linear-gradient(to bottom, var(--green-clr), var(--greenyellow-clr));
     overflow: hidden;
     display: flex;
     justify-content: center;
